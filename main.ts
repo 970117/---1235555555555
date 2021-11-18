@@ -1,30 +1,47 @@
-input.onButtonPressed(Button.A, function () {
-    list = [
-    10,
-    50,
-    100,
-    150,
-    225
-    ]
-    for (let index = 0; index <= 4; index++) {
-        led.plotBrightness(index, 0, list[index])
-    }
-})
-input.onButtonPressed(Button.B, function () {
-    list = []
-})
-let list: number[] = []
-list = [
+let list = [
+[
+1,
+0,
+1,
+0,
+1
+],
+[
 0,
 1,
 0,
 1,
 0
+],
+[
+1,
+0,
+0,
+0,
+1
+],
+[
+1,
+0,
+0,
+0,
+1
+],
+[
+1,
+0,
+0,
+0,
+1
 ]
-for (let index = 0; index <= 4; index++) {
-    if (list[index]) {
-        led.plot(index, 0)
-    } else {
-        led.unplot(index, 0)
+]
+for (let y = 0; y <= 4; y++) {
+    for (let index = 0; index <= 4; index++) {
+        let x = 0
+        if (list[y][x]) {
+            led.plot(x, y)
+        } else {
+            led.unplot(y, x)
+        }
     }
 }
